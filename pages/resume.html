@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyndsay Larson — Marketing Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1b2d52;
+    --blue: #3a72a8;
+    --sky: #6ca0c8;
+    --white: #faf9f7;
+    --cream: #f2ede8;
+    --sage: #8aab97;
+    --blush: #d9c4bb;
+    --ink: #2c2c2c;
+    --muted: #7a7a7a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    padding: 1.1rem 3rem;
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--blush);
+  }
+  nav a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  nav a:hover { opacity: 1; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 7rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #eef4fa 0%, var(--white) 55%, #f5ede9 100%);
+  }
+
+  /* Floral SVG watercolor frame */
+  .floral-top {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 420px;
+    pointer-events: none;
+  }
+  .floral-bottom {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 100%; height: 320px;
+    pointer-events: none;
+    transform: rotate(180deg);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+  .hero-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1.1rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 8vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue);
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 2.2rem;
+    line-height: 1.5;
+  }
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.8rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .hero-contacts a {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    text-decoration: none;
+    opacity: 0.65;
+    transition: opacity 0.2s;
+  }
+  .hero-contacts a:hover { opacity: 1; color: var(--blue); }
+  .hero-cta {
+    display: inline-block;
+    padding: 0.75rem 2.2rem;
+    border: 1.5px solid var(--navy);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+  }
+  .hero-cta:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── SECTION SHELL ── */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+  .section-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 2.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--blush);
+  }
+
+  /* ── ABOUT / INTRO ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1.02rem;
+    color: var(--ink);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-skills h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+  }
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-pill {
+    padding: 0.35rem 0.9rem;
+    background: #e8f0f8;
+    color: var(--navy);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+    font-weight: 400;
+  }
+
+  /* ── LANGUAGES HIGHLIGHT ── */
+  .languages-band {
+    background: var(--navy);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .languages-band .section-label { color: var(--sky); }
+  .languages-band .section-title { color: var(--white); border-bottom-color: rgba(255,255,255,0.15); }
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .lang-card {
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    position: relative;
+  }
+  .lang-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--sky);
+  }
+  .lang-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .lang-level {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sky);
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .lang-note {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 2.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--cream);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .exp-meta {
+    text-align: right;
+    padding-top: 0.15rem;
+  }
+  .exp-date {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    display: block;
+    line-height: 1.6;
+  }
+  .exp-location {
+    font-size: 0.75rem;
+    color: var(--sage);
+    display: block;
+    margin-top: 0.2rem;
+  }
+  .exp-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.15rem;
+  }
+  .exp-role {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .exp-bullets li {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: var(--ink);
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.35rem;
+  }
+  .exp-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 5px;
+    height: 1px;
+    background: var(--sage);
+  }
+  .highlight-pill {
+    display: inline-block;
+    background: #deeaf5;
+    color: var(--navy);
+    font-size: 0.73rem;
+    padding: 0.1rem 0.55rem;
+    border-radius: 2px;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .edu-school {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .edu-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+    font-style: italic;
+  }
+  .edu-detail {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .edu-stats {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .edu-gpa {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .edu-gpa-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.2rem;
+    display: block;
+  }
+
+  /* ── SERVICE ── */
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .service-card {
+    padding: 2rem;
+    border: 1px solid var(--blush);
+    position: relative;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--sky), var(--sage));
+  }
+  .service-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .service-card-role {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 0.2rem;
+  }
+  .service-card-loc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .service-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .service-card ul li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--ink);
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+  .service-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.7em;
+    width: 4px; height: 1px;
+    background: var(--sage);
+  }
+
+  /* ── PERSONAL ── */
+  .personal-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.5rem 0;
+  }
+  .personal-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .personal-item svg {
+    flex-shrink: 0;
+    color: var(--sky);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+  footer a {
+    color: var(--sky);
+    text-decoration: none;
+  }
+
+  /* ── DIVIDER ORNAMENT ── */
+  .ornament {
+    text-align: center;
+    margin: 1rem 0 2rem;
+    color: var(--blush);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+  }
+
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; gap: 1.2rem; }
+    .about-grid, .lang-grid, .service-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-meta { text-align: left; order: -1; }
+    .edu-card { flex-direction: column; }
+    .edu-stats { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#languages">Languages</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+  <!-- Top floral SVG -->
+  <svg class="floral-top" viewBox="0 0 1440 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="pg1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#6ca0c8" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#6ca0c8" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="pg2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#8aab97" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#8aab97" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="pg3" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#d9c4bb" stop-opacity="0.25"/>
+        <stop offset="100%" stop-color="#d9c4bb" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- scattered blossoms left cluster -->
+    <g transform="translate(60,40)">
+      <!-- big bloom -->
+      <ellipse cx="0" cy="0" rx="38" ry="18" fill="#b8d4e8" fill-opacity="0.35" transform="rotate(-30)"/>
+      <ellipse cx="0" cy="0" rx="38" ry="18" fill="#b8d4e8" fill-opacity="0.35" transform="rotate(30)"/>
+      <ellipse cx="0" cy="0" rx="38" ry="18" fill="#b8d4e8" fill-opacity="0.35" transform="rotate(90)"/>
+      <ellipse cx="0" cy="0" rx="38" ry="18" fill="#b8d4e8" fill-opacity="0.35" transform="rotate(150)"/>
+      <circle cx="0" cy="0" r="10" fill="#e8d5d0" fill-opacity="0.7"/>
+    </g>
+    <!-- leaf stem left -->
+    <path d="M 20 100 Q 80 80 140 120 Q 100 160 60 140 Z" fill="#8aab97" fill-opacity="0.18"/>
+    <path d="M 30 80 Q 90 60 150 90" stroke="#8aab97" stroke-width="1.5" fill="none" stroke-opacity="0.3"/>
+    <!-- small bud -->
+    <ellipse cx="160" cy="55" rx="14" ry="22" fill="#6ca0c8" fill-opacity="0.2" transform="rotate(-15,160,55)"/>
+    <ellipse cx="148" cy="68" rx="14" ry="22" fill="#6ca0c8" fill-opacity="0.15" transform="rotate(10,148,68)"/>
+    <!-- tiny leaves -->
+    <path d="M 120 110 Q 140 95 165 105 Q 148 125 128 120 Z" fill="#8aab97" fill-opacity="0.22"/>
+    <!-- second bloom right of center-left -->
+    <g transform="translate(280,30)">
+      <ellipse cx="0" cy="0" rx="26" ry="12" fill="#d4b8c8" fill-opacity="0.3" transform="rotate(0)"/>
+      <ellipse cx="0" cy="0" rx="26" ry="12" fill="#d4b8c8" fill-opacity="0.3" transform="rotate(60)"/>
+      <ellipse cx="0" cy="0" rx="26" ry="12" fill="#d4b8c8" fill-opacity="0.3" transform="rotate(120)"/>
+      <circle cx="0" cy="0" r="7" fill="#e8d5d0" fill-opacity="0.65"/>
+    </g>
+    <path d="M 240 80 Q 270 60 310 75" stroke="#8aab97" stroke-width="1.2" fill="none" stroke-opacity="0.25"/>
+    <path d="M 255 90 Q 275 75 300 85 Q 280 105 262 100 Z" fill="#8aab97" fill-opacity="0.18"/>
+    <!-- right cluster -->
+    <g transform="translate(1300, 50)">
+      <ellipse cx="0" cy="0" rx="42" ry="20" fill="#6ca0c8" fill-opacity="0.3" transform="rotate(20)"/>
+      <ellipse cx="0" cy="0" rx="42" ry="20" fill="#6ca0c8" fill-opacity="0.3" transform="rotate(80)"/>
+      <ellipse cx="0" cy="0" rx="42" ry="20" fill="#6ca0c8" fill-opacity="0.3" transform="rotate(140)"/>
+      <ellipse cx="0" cy="0" rx="42" ry="20" fill="#6ca0c8" fill-opacity="0.3" transform="rotate(200)"/>
+      <circle cx="0" cy="0" r="11" fill="#b8d4e8" fill-opacity="0.6"/>
+    </g>
+    <path d="M 1360 110 Q 1300 90 1240 130 Q 1280 160 1330 145 Z" fill="#8aab97" fill-opacity="0.16"/>
+    <path d="M 1350 85 Q 1290 68 1220 95" stroke="#8aab97" stroke-width="1.5" fill="none" stroke-opacity="0.28"/>
+    <!-- scattered buds right -->
+    <ellipse cx="1200" cy="45" rx="17" ry="28" fill="#6ca0c8" fill-opacity="0.18" transform="rotate(12,1200,45)"/>
+    <ellipse cx="1215" cy="60" rx="17" ry="28" fill="#d4b8c8" fill-opacity="0.18" transform="rotate(-8,1215,60)"/>
+    <!-- far right tiny bloom -->
+    <g transform="translate(1415,80)">
+      <ellipse cx="0" cy="0" rx="20" ry="9" fill="#d4b8c8" fill-opacity="0.28" transform="rotate(0)"/>
+      <ellipse cx="0" cy="0" rx="20" ry="9" fill="#d4b8c8" fill-opacity="0.28" transform="rotate(72)"/>
+      <ellipse cx="0" cy="0" rx="20" ry="9" fill="#d4b8c8" fill-opacity="0.28" transform="rotate(144)"/>
+      <circle cx="0" cy="0" r="6" fill="#e8d5d0" fill-opacity="0.55"/>
+    </g>
+    <!-- center-top scattered petals -->
+    <ellipse cx="700" cy="15" rx="30" ry="8" fill="#6ca0c8" fill-opacity="0.1" transform="rotate(-10,700,15)"/>
+    <ellipse cx="760" cy="22" rx="22" ry="6" fill="#8aab97" fill-opacity="0.12" transform="rotate(5,760,22)"/>
+    <!-- gradient wash -->
+    <ellipse cx="180" cy="80" rx="180" ry="90" fill="url(#pg1)"/>
+    <ellipse cx="1260" cy="100" rx="190" ry="95" fill="url(#pg2)"/>
+  </svg>
+
+  <!-- Bottom floral (mirrored via transform) -->
+  <svg class="floral-bottom" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <g transform="translate(80,40)">
+      <ellipse cx="0" cy="0" rx="32" ry="15" fill="#d4b8c8" fill-opacity="0.3" transform="rotate(-20)"/>
+      <ellipse cx="0" cy="0" rx="32" ry="15" fill="#d4b8c8" fill-opacity="0.3" transform="rotate(40)"/>
+      <ellipse cx="0" cy="0" rx="32" ry="15" fill="#d4b8c8" fill-opacity="0.3" transform="rotate(100)"/>
+      <circle cx="0" cy="0" r="9" fill="#e8d5d0" fill-opacity="0.65"/>
+    </g>
+    <path d="M 40 100 Q 100 75 165 105 Q 130 140 80 130 Z" fill="#8aab97" fill-opacity="0.16"/>
+    <g transform="translate(1380,60)">
+      <ellipse cx="0" cy="0" rx="36" ry="17" fill="#6ca0c8" fill-opacity="0.28" transform="rotate(15)"/>
+      <ellipse cx="0" cy="0" rx="36" ry="17" fill="#6ca0c8" fill-opacity="0.28" transform="rotate(75)"/>
+      <ellipse cx="0" cy="0" rx="36" ry="17" fill="#6ca0c8" fill-opacity="0.28" transform="rotate(135)"/>
+      <circle cx="0" cy="0" r="10" fill="#b8d4e8" fill-opacity="0.55"/>
+    </g>
+    <path d="M 1340 110 Q 1280 88 1215 120 Q 1255 152 1310 138 Z" fill="#8aab97" fill-opacity="0.15"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Marketing Professional</p>
+    <h1>Lyndsay <em>Larson</em></h1>
+    <p class="hero-tagline">Connecting brands to people — through strategy, story, and a little fluent French.</p>
+    <div class="hero-contacts">
+      <a href="tel:8016961149">(801) 696-1149</a>
+      <a href="mailto:lyndsaylarson5@icloud.com">lyndsaylarson5@icloud.com</a>
+      <a href="https://www.linkedin.com/in/lyndsaylarsonn" target="_blank">LinkedIn</a>
+    </div>
+    <a href="mailto:lyndsaylarson5@icloud.com" class="hero-cta">Get in Touch</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Who I Am</p>
+  <h2 class="section-title">A Marketer With a Multilingual Edge</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Pre-Marketing student at BYU's Marriott School of Business with hands-on experience in SEO content creation, brand visibility, digital engagement, and team leadership. My background spans creative marketing, customer experience, and cross-cultural outreach — including nearly two years leading teams internationally in Chile.</p>
+      <p>I bring something most candidates don't: native-level French, conversational Spanish, and the cultural fluency that comes from actually living abroad. I'm energized by campaigns that connect, and I love turning data into stories that resonate.</p>
+    </div>
+    <div class="about-skills">
+      <h3>Core Competencies</h3>
+      <div class="skill-pills">
+        <span class="skill-pill">SEO Writing</span>
+        <span class="skill-pill">Content Creation</span>
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">Social Media Management</span>
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Microsoft Office</span>
+        <span class="skill-pill">Excel</span>
+        <span class="skill-pill">Brand Strategy</span>
+        <span class="skill-pill">Cross-cultural Communication</span>
+        <span class="skill-pill">Team Leadership</span>
+        <span class="skill-pill">KPI Analysis</span>
+        <span class="skill-pill">Presentation Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<div class="languages-band" id="languages">
+  <section style="padding:0; max-width: 900px;">
+    <p class="section-label">Global Reach</p>
+    <h2 class="section-title">Languages</h2>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <span class="lang-name">English</span>
+        <span class="lang-level">Native</span>
+        <span class="lang-note">Lifetime native speaker and communicator.</span>
+      </div>
+      <div class="lang-card">
+        <span class="lang-name">French</span>
+        <span class="lang-level">Fluent</span>
+        <span class="lang-note">13 years of dual immersion education — from classroom to real conversation.</span>
+      </div>
+      <div class="lang-card">
+        <span class="lang-name">Spanish</span>
+        <span class="lang-level">Conversational</span>
+        <span class="lang-note">Developed through 18 months of daily use serving communities in Chile.</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">What I've Done</p>
+  <h2 class="section-title">Experience</h2>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">Oct 2024 – Apr 2026</span>
+      <span class="exp-location">Puerto Montt, Chile</span>
+    </div>
+    <div>
+      <div class="exp-company">Church of Jesus Christ of Latter-day Saints</div>
+      <div class="exp-role">Missionary &amp; Team Leader</div>
+      <ul class="exp-bullets">
+        <li>Led and mentored up to 20 missionaries at a time through training and performance coaching</li>
+        <li>Collaborated with other leaders to develop and implement mission-wide strategic initiatives <span class="highlight-pill">Strategy</span></li>
+        <li>Created Canva presentations to communicate goals and facilitate leadership training meetings <span class="highlight-pill">Canva</span></li>
+        <li>Analyzed key performance indicators to identify opportunities for organizational improvement and growth <span class="highlight-pill">KPI Analysis</span></li>
+        <li>Strengthened communication through daily outreach, relationship-building, and community engagement</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">Jan – Apr 2024</span>
+      <span class="exp-location">Murray, UT</span>
+    </div>
+    <div>
+      <div class="exp-company">Sports West Construction</div>
+      <div class="exp-role">Deliverables Manager</div>
+      <ul class="exp-bullets">
+        <li>Collaborated with 4 Pre-Business students to manage and deliver marketing content on deadline</li>
+        <li>Published 30+ SEO-focused blog posts to increase brand visibility and digital engagement <span class="highlight-pill">SEO</span></li>
+        <li>Developed SEO strategy that boosted click-through rates by 20% or more <span class="highlight-pill">+20% CTR</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">Feb – Dec 2022</span>
+      <span class="exp-location">Provo, UT</span>
+    </div>
+    <div>
+      <div class="exp-company">Twisted Sugar (Soda Shop)</div>
+      <div class="exp-role">Shift Lead / Baker</div>
+      <ul class="exp-bullets">
+        <li>Facilitated opening and closing of the shop, including inventory storage and organization</li>
+        <li>Ensured productivity and customer service by leading a team of 15 employees <span class="highlight-pill">Leadership</span></li>
+        <li>Managed fluctuating product demand while maintaining quality standards</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">Jun – Oct 2021</span>
+      <span class="exp-location">Salt Lake City, UT</span>
+    </div>
+    <div>
+      <div class="exp-company">Larson Dental</div>
+      <div class="exp-role">Dental Assistant</div>
+      <ul class="exp-bullets">
+        <li>Trained in dental terminology, procedures, and patient communication</li>
+        <li>Assisted in root canals, crown placements, fillings, and routine check-ups</li>
+        <li>Administered dental impressions and x-rays; managed up to 30 hours per week alongside extracurriculars</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section style="background: var(--cream); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width:900px; margin:0 auto;">
+    <p class="section-label">Giving Back</p>
+    <h2 class="section-title">Service</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-card-title">Humanitarian Experience</div>
+        <div class="service-card-role">Builder</div>
+        <div class="service-card-loc">Papeete, Tahiti — Jul 2022</div>
+        <ul>
+          <li>Built a house for a family afflicted by economic hardship</li>
+          <li>Immersed in Tahitian culture for two weeks alongside a team of 20+ individuals</li>
+          <li>Practiced cross-cultural communication using French daily</li>
+          <li>Translated for group members who only spoke English</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-card-title">LDS Mission</div>
+        <div class="service-card-role">Missionary</div>
+        <div class="service-card-loc">Puerto Montt, Chile — Oct 2024–Apr 2026</div>
+        <ul>
+          <li>Served full-time across 18 months in Spanish-speaking communities</li>
+          <li>Developed relationship-building and outreach skills across diverse groups</li>
+          <li>Gained fluency in cross-cultural engagement and team mentorship</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Foundation</p>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-card">
+    <div>
+      <div class="edu-school">Brigham Young University</div>
+      <div class="edu-sub">Marriott School of Business &mdash; Provo, UT</div>
+      <div class="edu-detail">
+        Pre-Marketing &nbsp;·&nbsp; Expected Graduation: Apr 2029<br>
+        Member of the Marketing Association<br>
+        Skills: Excel, Canva, Microsoft Office, Social Media Management, Content Creation, Tableau
+      </div>
+    </div>
+    <div class="edu-stats">
+      <div class="edu-gpa">3.74</div>
+      <span class="edu-gpa-label">GPA / 4.00</span>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL -->
+<section style="text-align:center; padding: 3rem 2rem 5rem;">
+  <p class="section-label" style="text-align:center;">Outside the Office</p>
+  <h2 class="section-title" style="text-align:center; max-width:400px; margin:0 auto 2rem;">A Little About Me</h2>
+  <div class="personal-row">
+    <div class="personal-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Formula 1 Ferrari Fan
+    </div>
+    <div class="personal-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      Team Captain — Brighton Girls Tennis
+    </div>
+    <div class="personal-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 3-6 4 10"/></svg>
+      Skier — Park City Resort
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <p style="margin-bottom:0.4rem; color:rgba(255,255,255,0.7); font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:300; letter-spacing:0.06em;">Let's Connect</p>
+  <p>
+    <a href="mailto:lyndsaylarson5@icloud.com">lyndsaylarson5@icloud.com</a>
+    &nbsp;&middot;&nbsp;
+    <a href="tel:8016961149">(801) 696-1149</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/lyndsaylarsonn" target="_blank">LinkedIn</a>
+  </p>
+  <p style="margin-top:1.5rem; font-size:0.68rem;">© 2026 Lyndsay Larson</p>
+</footer>
+
+</body>
+</html>
