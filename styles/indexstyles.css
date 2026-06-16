@@ -1,6 +1,25 @@
 body{
-    background-color:seagreen;
+    background-color:hsl(157, 79%, 26%);
     font-family: georgia;
     font-size: 20px;
 
+}
+h1,h2{
+    text-align: center;
+    color: whitesmoke;
+    font-family: Playfair Display;
+    background-color:skyblue
+}
+.areas{
+    color: white;
+}
+.companions{
+    color: navy;
+}
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
